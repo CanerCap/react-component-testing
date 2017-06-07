@@ -1,9 +1,9 @@
 
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { BrowserHistory } from "react-router";
-import { MuiThemeProvider } from "material-ui/styles";
-import injectTapEventPlugin from "react-tap-event-plugin";
+
+import createHistory from 'history/createBrowserHistory';
+
 
 import AppNavBar from "./components/AppNavBar";
 import HomePage from "./components/HomePage";
@@ -14,13 +14,13 @@ import Catalogue from "./components/CataloguePage";
 class App extends Component {
     constructor(props) {
         super(props);
-        injectTapEventPlugin();
+
     }
 
     render() {
-        let browserHistory = BrowserHistory;
+        let browserHistory = createHistory;
         return (
-            <MuiThemeProvider>
+            <div>
                 <Router history={browserHistory}>
                     <div>
                         <AppNavBar />
@@ -41,7 +41,7 @@ class App extends Component {
                         />
                     </div>
                 </Router>
-            </MuiThemeProvider>
+            </div>
         );
     }
 }
